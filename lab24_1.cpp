@@ -63,4 +63,26 @@ void List::append(int d){
 	size++;
 }
 
-//Write List::remove() here
+
+void List::remove(int p){
+	
+	if(p==0){
+		Node *temp =root;
+		root = root->next;
+		delete temp;
+		return;
+	}
+
+	Node *current = root;
+
+	for(int i = 0; i < p-1 ; i++){
+		current = current->next;
+	}
+
+	Node *temp = current->next;
+	current->next = temp->next;
+
+	cout<<temp->data <<" was deleted."<<endl;
+
+	return ;
+}
